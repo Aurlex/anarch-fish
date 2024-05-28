@@ -1,7 +1,7 @@
 #!/bin/fish
 
 if test $USER != "root"
-    echo "This script requires root."
+    echo "This script must be run as root."
     return 1
 end
 
@@ -146,6 +146,8 @@ cd ../
 
 rm root/etc/resolv.conf
 cat $PREFIX/etc/resolv.conf > root/etc/resolv.conf
+cat $PREFIX/etc/hostname > root/etc/hostname
+cat $PREFIX/etc/hosts >  root/etc/hosts
 
 mkdir root/sdcard
 
@@ -175,7 +177,7 @@ losetup -D" > unmount_arch.fish
 echo \
 "#!/bin/fish
 fish mount_arch.fish
-LD_PRELOAD="" chroot root
+unshare --uts env -i TERM=xterm-256color chroot root (awk -F: -v user='root' '\$1 == user {print \$NF}' root/etc/passwd)
 fish unmount_arch.fish" > start_arch.fish
 
 chmod +x start_arch.fish
