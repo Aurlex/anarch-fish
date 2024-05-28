@@ -146,7 +146,7 @@ cd ../
 
 rm root/etc/resolv.conf
 cat $PREFIX/etc/resolv.conf > root/etc/resolv.conf
-cat $PREFIX/etc/hostname > root/etc/hostname
+cat $hostname > root/etc/hostname > root/etc/hostname
 cat $PREFIX/etc/hosts >  root/etc/hosts
 
 mkdir root/sdcard
