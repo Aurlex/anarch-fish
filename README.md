@@ -12,7 +12,8 @@
 1. Root your android device
 2. Install Termux
 3. Install the `tsu` package to access root in termux
-4. Run this script as root (very carefully)
+4. Install the `fish` package to access the fish shell
+5. Run this script as root (very carefully)
      - Please look at the contents first; this is a hacky script. Not a polished product. Do not trust it. <br> <br>
    ```fish
    $~ tsu
